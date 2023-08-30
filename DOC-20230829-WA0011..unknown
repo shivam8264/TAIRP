@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #abe0c0; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            color: black;
+        }
+
+        #task {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #addButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: black;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #addButton:hover {
+            background-color: #2980b9;
+        }
+
+        #taskList {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            color: #333333;
+        }
+
+        li:nth-child(odd) {
+            background-color: #f5f5f5;
+        }
+
+        li:nth-child(even) {
+            background-color: #f0f0f0;
+        }
+
+        .fa-trash-alt {
+            color: #e74c3c;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        #errorMessage {
+            color: #e74c3c;
+            margin-top: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+<div id="container">
+    <h1>To-Do List</h1>
+
+    <input type="text" id="task" placeholder="Enter a task">
+    <button id="addButton" onclick="addTask()">Add Task</button>
+
+    <ul id="taskList">
+    </ul>
+
+    <div id="errorMessage"></div>
+</div>
+
+<script>
+function addTask() {
+    var taskInput = document.getElementById("task");
+    var taskList = document.getElementById("taskList");
+    var errorMessage = document.getElementById("errorMessage");
+
+    var taskExists = false;
+    var existingTasks = taskList.getElementsByTagName("li");
+
+    for (var i = 0; i < existingTasks.length; i++) {
+        if (existingTasks[i].textContent === taskInput.value) {
+            taskExists = true;
+            break;
+        }
+    }
+
+    if (!taskExists) {
+        if (taskInput.value !== "") {
+            var taskItem = document.createElement("li");
+            taskItem.appendChild(document.createTextNode(taskInput.value));
+
+            var deleteButton = document.createElement("i");
+            deleteButton.classList.add("fas", "fa-trash-alt");
+            deleteButton.style.cursor = "pointer";
+            deleteButton.onclick = function() {
+                taskList.removeChild(taskItem);
+            };
+
+            taskItem.appendChild(deleteButton);
+            taskList.appendChild(taskItem);
+
+            taskInput.value = "";
+            errorMessage.textContent = "";
+        }
+    } else {
+        errorMessage.textContent = "Task already exists!";
+    }
+}
+</script>
+
+</body>
+</html>

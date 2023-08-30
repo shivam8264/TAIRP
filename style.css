@@ -1,0 +1,207 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+*{
+	background-color:#FAEBD7;
+	}
+#title{
+    padding:2px 10px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font: 900;
+    font-size: 30px;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    /* Adjust the container width as needed */
+    margin: 0 auto;
+    overflow: hidden;
+
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    animation: move ease-in-out;
+}
+
+/* Animation of Rotate and Flip Class */
+.rotate-flip2-animation {
+
+    background-color: #3498db;
+    color: white;
+    animation: rotateFlip2 3s linear ;
+    transform-style: preserve-3d;
+    perspective: 800px; /* Add perspective for 3D effect */
+}
+
+@keyframes rotateFlip2 {
+    0%, 100% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+}
+
+
+/* Rotate and Flip Animation Class */
+.rotate-flip3-animation {
+ 
+    background-color: #3498db;
+    color: white;
+    animation: rotateFlip3 4s linear ;
+    transform-style: preserve-3d;
+    perspective: 800px; /* Add perspective for 3D effect */
+}
+
+@keyframes rotateFlip3 {
+    0%, 100% {
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+    25% {
+        transform: rotateY(180deg) rotateX(0deg);
+    }
+    50% {
+        transform: rotateY(180deg) rotateX(180deg);
+    }
+    75% {
+        transform: rotateY(0deg) rotateX(180deg);
+    }
+}
+
+
+/* Rotate Animation Class */
+
+.rotate-flip4-animation {
+ 
+    background-color: #3498db;
+    color: white;
+    animation: rotateFlip4 4s linear ;
+    transform-style: preserve-3d;
+    perspective: 800px; /* Add perspective for 3D effect */
+}
+
+@keyframes rotateFlip4 {
+    0%, 100% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+        transform: rotateX(90deg) rotateY(0deg);
+    }
+    50% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+    75% {
+        transform: rotateX(0deg) rotateY(90deg);
+    }
+}
+
+
+.rotate-flip5-animation {
+
+    background-color: #3498db;
+    color: white;
+    animation: rotateFlip5 3s linear ;
+    transform-style: preserve-3d;
+    perspective: 800px; /* Add perspective for 3D effect */
+}
+
+@keyframes rotateFlip5 {
+    0%, 100% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(360deg);
+    }
+}
+
+
+
+
+
+.prev-button {
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+
+}
+
+.next-button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.prev-button:hover,
+.next-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-image: url("background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 450px;
+}
+
+section {
+    height: 94.5%;
+} */

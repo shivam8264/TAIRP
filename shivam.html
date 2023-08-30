@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Image Slider</title>
+</head>
+<body>
+    <div id="title"><b>IMAGE SLIDER<b></div>
+    <div class="slider-container">
+        <div class="slider">
+<img id="img1" src="https://cdn.pixabay.com/photo/2017/10/17/19/11/fantasy-2861815_1280.jpg" alt="Error">
+<img id="img2"  src="https://cdn.pixabay.com/photo/2017/11/01/08/52/science-fiction-2907434_1280.jpg" alt="Error">
+<img id="img3"  src="https://cdn.pixabay.com/photo/2016/04/14/13/06/landscape-1328858_1280.jpg" alt="Error">
+<img id="img4"  src="https://cdn.pixabay.com/photo/2017/12/12/12/55/ufo-3014638_1280.jpg" alt="Error">
+<img id="img5"  src="https://cdn.pixabay.com/photo/2018/08/04/18/17/wallpaper-3584226_1280.jpg" alt="Error">      
+        </div>
+        <button class="prev-button">&#9665;</button>
+        <button class="next-button">&#9655;</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<script>
+const slider = document.querySelector('.slider');
+const images = document.querySelectorAll('.slider img');
+const prevButton = document.querySelector('.prev-button');
+const nextButton = document.querySelector('.next-button');
+const img1=document.getElementById("img1");
+const img2=document.getElementById("img2");
+const img3=document.getElementById("img3");
+const img4=document.getElementById("img4");
+const img5=document.getElementById("img5");
+
+let currentIndex = 0;
+
+function updateSlider() {
+    const translateValue = -currentIndex * 100;
+    slider.style.transform = `translateX(${translateValue}%)`;
+}
+
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateSlider();
+    img2.classList.remove("rotate-flip2-animation");
+    img3.classList.remove("rotate-flip3-animation");
+    img4.classList.remove("rotate-flip4-animation");
+    img5.classList.remove("rotate-flip5-animation");
+
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % images.length;
+    img2.classList.add("rotate-flip2-animation")
+    img3.classList.add("rotate-flip3-animation")
+    img4.classList.add("rotate-flip4-animation")
+    img5.classList.add("rotate-flip5-animation")
+    updateSlider();
+}
+
+prevButton.addEventListener('click', prevSlide);
+nextButton.addEventListener('click', nextSlide);
+
+// Initially set the slider position
+updateSlider();
+
+</script>
